@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vision project</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:#050505;
+    color:#fff;
+    min-height:100vh;
+}
+
+/* Scroll */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#ff003c;
+    border-radius:20px;
+}
+
+/* Header */
+
+header{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.logo{
+    font-size:3rem;
+    font-weight:900;
+    color:#ff003c;
+    text-shadow:
+    0 0 10px #ff003c,
+    0 0 20px #ff003c,
+    0 0 40px #ff003c;
+}
+
+.subtitle{
+    color:#ccc;
+    margin-top:10px;
+}
+
+/* Stats */
+
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin:20px;
+}
+
+.stat{
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,0,60,.25);
+    padding:15px 25px;
+    border-radius:18px;
+}
+
+/* Search */
+
+.search-container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+#search{
+    width:100%;
+    padding:16px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    background:#111;
+    color:white;
+    font-size:16px;
+    border:1px solid #ff003c;
+}
+
+/* Container */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+/* Cards */
+
+.tool-card{
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,0,60,.25);
+
+    border-radius:25px;
+    padding:25px;
+    margin-bottom:25px;
+
+    transition:.4s;
+
+    box-shadow:
+    0 0 15px rgba(255,0,60,.15),
+    0 0 40px rgba(255,0,60,.05);
+}
+
+.tool-card:hover{
+    transform:translateY(-6px);
+
+    box-shadow:
+    0 0 25px rgba(255,0,60,.35),
+    0 0 60px rgba(255,0,60,.10);
+}
+
+.number{
+    font-size:3rem;
+    color:#ff003c;
+    font-weight:900;
+    text-shadow:0 0 15px #ff003c;
+}
+
+.tool-card h2{
+    margin-top:10px;
+}
+
+.tool-card p{
+    margin-top:10px;
+    color:#cfcfcf;
+}
+
+pre{
+    margin-top:15px;
+    background:#000;
+    border-left:4px solid #ff003c;
+    padding:15px;
+    border-radius:10px;
+    overflow-x:auto;
+}
+
+button{
+    margin-top:15px;
+    border:none;
+    background:#ff003c;
+    color:white;
+    padding:12px 20px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+button:hover{
+    box-shadow:0 0 20px #ff003c;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#888;
+}
+
+@media(max-width:700px){
+
+.logo{
+    font-size:2.2rem;
+}
+
+.number{
+    font-size:2.2rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+<body>
+
+<div id="loginBox" style="
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#050505;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+">
+
+<div style="
+background:#111;
+padding:25px;
+border-radius:15px;
+width:320px;
+text-align:center;
+">
+
+<h2 style="color:#ff003c;">Login</h2>
+
+<input type="text" id="user" placeholder="Login"
+style="width:100%;padding:10px;margin:10px 0;">
+
+<input type="password" id="pass" placeholder="Senha"
+style="width:100%;padding:10px;margin:10px 0;">
+
+<button onclick="entrar()"
+style="width:100%;padding:10px;background:#ff003c;color:#fff;border:none;">
+Entrar
+</button>
+
+<p id="erro" style="color:red;margin-top:10px;"></p>
+
+</div>
+</div>
+
+<div id="siteContent" style="display:none;">
+<header>
+
+<div class="logo">Vision project</div>
+
+<p class="subtitle">
+Biblioteca de Ferramentas, Scripts e 7
+</p>
+
+</header>
+
+
+<div class="tool-card">
+    <div class="number">📱</div>
+
+    <h2>O que é o Termux?</h2>
+
+    <p>
+        O Termux é um emulador de terminal para Android que permite executar comandos Linux diretamente no celular.
+    </p>
+</div>
+
+<div class="tool-card">
+    <div class="number">🚀</div>
+
+    <h2>Para que o Termux é utilizado?</h2>
+
+    <ul>
+        <li>Programação</li>
+        <li>Linux no Android</li>
+        <li>Automação</li>
+        <li>Hospedagem local</li>
+        <li>GitHub</li>
+    </ul>
+</div>
+
+<div class="stats">
+
+
+<div class="stat">13  Topicos</div>
+
+<div class="stat">Dono @romaodo7</div>
+
+<div class="stat">Conhecimento nao é crime</div>
+
+</div>
+
+<div class="search-container">
+
+<input
+type="text"
+id="search"
+placeholder="Pesquisar ferramenta..."
+>
+
+</div>
+
+<div class="container">
+
+<!-- 1 -->
+
+<div class="tool-card">
+
+<div class="number">1°</div>
+
+<h2>GhostTrack</h2>
+
+<p> obter localizaçao de ip e numero telefonico
+
+</p>
+
+<pre id="code1">
+git clone https://github.com/HunxByts/GhostTrack.git
+cd GhostTrack
+pip3 install -r requirements.txt
+python3 GhostTR.py
+</pre>
+
+<button onclick="copyCode('code1')">
+📋 Copiar
+</button>
+
+</div>
+
+<!-- 2 -->
+
+<div class="tool-card">
+
+<div class="number">2°</div>
+
+<h2>invasao de camera</h2>
+
+<p>obtem acesso a camera frontal atras de link</p>
+
+<pre id="code2">
+git clone https://github.com/techchipnet/CamPhish
+cd CamPhish
+bash camphish.sh
+</pre>
+
+<button onclick="copyCode('code2')">
+📋 Copiar
+</button>
+
+</div>
+
+<!-- 3 -->
+
+<div class="tool-card">
+
+<div class="number">3°</div>
+
+<h2>Toolmux</h2>
+
+<p>conjunto de varias scripts poderosas</p>
+
+<pre id="code3">
+apt update
+apt upgrade
+apt install python git -y
+git clone https://github.com/Olliv3r/Toolmux ~/Toolmux cd ~/Toolmux
+chmod +x toolmux.py
+./toolmux.py
+</pre>
+
+<button onclick="copyCode('code3')">
+📋 Copiar
+</button>
+
+</div>
+
+<!-- 4 -->
+
+<div class="tool-card">
+
+<div class="number">4°</div>
+
+<h2>Ddos Ataque</h2>
+
+<p> DDOS ATACK (derrubar sites)
+
+<pre id="code4">
+git clone https://github.com/Ha3MrX/DDos-Attack
+cd DDos-Attack
+chmod +x ddos-attack.py
+python ddos-attack.py
+</pre> 
+
+<button onclick="copyCode('code4')">
+📋 Copiar
+</button>
+
+</div>
+
+<!-- 5 -->
+
+<div class="tool-card">
+
+<div class="number">5°</div>
+
+<h2>Fsociety</h2>
+
+<p>script de pentest (analise de redes e invasao)</p>
+
+<pre id="code5">
+pip install fsociety pip install --upgrade fsociety
+</pre>
+
+<button onclick="copyCode('code5')">
+📋 Copiar
+</button>
+
+</div>
+
+<!-- 6 -->
+
+<div class="tool-card">
+
+<div class="number">6°</div>
+
+<h2>OsintX</h2>
+
+<p>OsintX é uma ferramenta de inteligência de fontes abertas (OSINT) usada para coletar e analisar informações públicas disponíveis na internet para fins de pesquisa, investigação e segurança digital.</p>
+
+<pre id="code6">
+pkg update -y && pkg upgrade -y
+ apt update -y && apt upgrade -y
+pkg install python -y
+ pkg install git
+git clone https://github.com/Whomrx666/osint-X.git
+cd osint-X
+ bash module.sh
+python osint-X.py
+</pre>
+
+<button onclick="copyCode('code6')">
+📋 Copiar
+</button>
+
+</div>
+
+<!-- 7 -->
+
+<div class="tool-card">
+
+<div class="number">7°</div>
+
+<h2>ADVPhisher</h2>
+
+<p>Roubo de credencias</p>
+
+<pre id="code7">
+git clone https://github.com/Ignitetch/AdvPhishing.git
+cd AdvPhishing/
+chmod 777 *
+./Android-Setup.sh
+./AdvPhishing.sh
+</pre>
+
+<button onclick="copyCode('code7')">
+📋 Copiar
+</button>
+
+</div>
+
+<!-- 8 -->
+
+<div class="tool-card">
+
+<div class="number">8°</div>
+
+<h2>Puxar dados</h2>
+
+<p>GP de puxada de dados, atraves de cpf/nome/telefone</p>
+
+<pre id="code8">
+https://t.me/electusgroup
+</pre>
+
+<button onclick="copyCode('code8')">
+📋 Copiar
+</button>
+
+</div>
+
+<!-- 9 -->
+
+<div class="tool-card">
+
+<div class="number">9°</div>
+
+<h2>pishing</h2>
+
+<p>clonagem de site para obter logins</p>
+
+<pre id="code9">
+apt update ; apt install git -y ; git clone git://github.com/htr-tech/nexphisher.git ; cd nexphisher ; bash setup ; bash nexphisher
+</pre>
+
+<button onclick="copyCode('code9')">
+📋 Copiar
+</button>
+
+</div>
+
+<!-- 10 -->
+
+<div class="tool-card">
+
+<div class="number">10°</div>
+
+<h2>Tbomb</h2>
+
+<p>SpamSms evia um numero massivo de sms limitando a força do dispositivo da vitima</p>
+
+<pre id="code10">
+pkg install git -y 
+pkg install python -y 
+git clone https://github.com/TheSpeedX/TBomb.git
+cd TBomb
+./TBomb.sh
+</pre>
+
+<button onclick="copyCode('code10')">
+📋 Copiar
+</button>
+
+</div>
+
+<!-- 11 -->
+
+<div class="tool-card">
+
+<div class="number">11°</div>
+
+<h2>LC Esquems GP</h2>
+
+<p> Bônus (Grupo vip com + uns trampo)
+
+
+<pre id="code11">
+https://t.me/+2loYdJy7v3JjM2Yx
+</pre>
+
+<button onclick="copyCode('code11')">
+📋 Copiar
+</button>
+
+</div>
+
+<!-- 12 -->
+
+<div class="tool-card">
+
+<div class="number">12°</div>
+
+<h2>Download Do Painel 7</h2>
+
+<p> Painel Do 7
+
+
+<pre id="code12">
+https://t.me/+fDN4CiDjJbFkMTIx
+</pre> 
+
+<button onclick="copyCode('code12')">
+📋 Copiar
+</button>
+
+</div>
+
+<!-- 13 -->
+
+<div class="tool-card">
+
+ <div class="number">13°</div>
+
+ <h2>Notas Falsa</h2>
+
+ <p>Notas Falsa para impressão</p>
+
+ <pre id="code13">
+https://t.me/+AYoc4_QTAt1lNzNh
+ </pre>
+
+ <button onclick="copyCode('code13')">
+ 📋 Copiar
+ </button>
+
+</div>
+
+
+<footer>
+
+Termux Hub © 2026
+
+</footer>
+
+<script>
+
+function copyCode(id){
+
+const text =
+document.getElementById(id).innerText;
+
+navigator.clipboard.writeText(text);
+
+alert("Código copiado!");
+
+}
+
+const search =
+document.getElementById("search");
+
+search.addEventListener("keyup", ()=>{
+
+const value =
+search.value.toLowerCase();
+
+const cards =
+document.querySelectorAll(".tool-card");
+
+cards.forEach(card=>{
+
+const text =
+card.innerText.toLowerCase();
+
+card.style.display =
+text.includes(value)
+? "block"
+: "none";
+
+});
+
+});
+
+</script>
+</script>
+
+</div>
+
+<script>
+function entrar(){
+
+let usuario = document.getElementById("user").value;
+let senha = document.getElementById("pass").value;
+
+if(usuario === "Dark001" && senha === "Sheel002"){
+
+document.getElementById("loginBox").style.display = "none";
+document.getElementById("siteContent").style.display = "block";
+
+}else{
+
+document.getElementById("erro").innerHTML =
+"Login ou senha incorretos!";
+
+}
+}
+</script>
+
+</body>
+</html>
+</body>
+</html>
